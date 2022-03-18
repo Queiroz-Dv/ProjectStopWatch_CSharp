@@ -1,7 +1,14 @@
-﻿Menu();
+# 🐱‍💻 Project Stopwatch CSharp
 
-static void Menu()
-{
+Projeto de estudos da linguagem C# onde foi realizado um cronômetro básico.
+
+Implementações:
+
+## Método do Menu
+
+Menu de interação:
+
+```c#
   Console.WriteLine("Bem Vindo ao Stopwatch Dv");
   Console.ReadKey();
   Console.WriteLine("------------------------");
@@ -10,14 +17,23 @@ static void Menu()
   Console.WriteLine("0 - Sair");
   Console.WriteLine("Quanto tempo desejar contar?");
 
-  //ToLower serve pra diminuir as letras
+```
+
+Coleta de dados:
+
+```c#
+//ToLower serve pra diminuir as letras
   string data = Console.ReadLine().ToLower();
   // data.Length vai contar quantos caracteres foi digitado
   char type = char.Parse(data.Substring(data.Length - 1, 1));
   int time = int.Parse(data.Substring(0, data.Length - 1));
   int multiplier = 1;
+  ```
 
-  if (type == 'm')
+Tratando condições e invocando função de inicialização:
+
+```c#
+if (type == 'm')
   {
     multiplier = 60;
   }
@@ -28,8 +44,13 @@ static void Menu()
   }
 
   PreStart(time * multiplier);
-}
+```
 
+## Método de Pré Inicialização
+
+Tela de interatividade com thread:
+
+```c#
 static void PreStart(int time)
 {
   Console.Clear();
@@ -42,7 +63,13 @@ static void PreStart(int time)
 
   Start(time);
 }
+```
 
+## Método Start
+
+Método que faz a contagem:
+
+```c#
 static void Start(int time)
 {
   int currentTime = 0;
@@ -59,3 +86,8 @@ static void Start(int time)
   Thread.Sleep(2500);
   Menu();
 }
+```
+
+## Tecnologias Usadas 
+- CSharp 
+- Visual Studio Code
